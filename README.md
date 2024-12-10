@@ -1,2 +1,1 @@
-# shirtly
-crud shirts stores
+# shirtly-project

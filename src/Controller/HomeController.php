@@ -3,16 +3,20 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
+use App\Service\BaseUrl;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    private $productRepository;
-    private $categoryRepository;
-    private $entityManager;
-    private $baseUrl;
+    private ProductRepository $productRepository;
+    private CategoryRepository $categoryRepository;
+    private EntityManagerInterface $entityManager;
+    private BaseUrl $baseUrl;
 
     /**
      * @param $productRepository
@@ -20,7 +24,10 @@ class HomeController extends AbstractController
      * @param $entityManager
      * @param $baseUrl
      */
-    public function __construct($productRepository, $categoryRepository, $entityManager, $baseUrl)
+    public function __construct(ProductRepository $productRepository,
+                                CategoryRepository $categoryRepository,
+                                EntityManagerInterface $entityManager,
+                                BaseUrl $baseUrl)
     {
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;

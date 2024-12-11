@@ -2,14 +2,16 @@
 
 namespace App\Service;
 
+use Symfony\Component\HttpFoundation\RequestStack;
+
 class BaseUrl
 {
-    private $requestStack;
+    private RequestStack $requestStack;
 
     /**
      * @param $requestStack
      */
-    public function __construct($requestStack)
+    public function __construct(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
     }
